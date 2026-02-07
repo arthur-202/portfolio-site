@@ -1,219 +1,257 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio - Cientista da Computação</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arthur — Machine Learning / AI Engineer (em formação)</title>
+  <meta name="description" content="Portfólio de Arthur — Engenheiro de Machine Learning em formação. Projetos, stack, contato e links para repositórios no GitHub." />
   <style>
+    :root{
+      --bg:#0f1724; --card:#ffffff; --muted:#64748b; --accent:#3b82f6; --glass: rgba(255,255,255,0.06);
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:linear-gradient(180deg,#f8fafc, #eef2ff); color:#0f1724; -webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--accent); text-decoration:none}
+    header{background:transparent; padding:1.25rem 1rem; position:sticky; top:0; backdrop-filter: blur(6px);}
+    nav{max-width:var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:1rem}
+    .brand{display:flex; align-items:center; gap:1rem}
+    .brand img{width:64px;height:64px;border-radius:12px;object-fit:cover; border:2px solid rgba(59,130,246,0.15)}
+    .brand h1{font-size:1rem;margin:0}
+    .brand p{margin:0;font-size:0.8rem;color:var(--muted)}
+    .nav-links{display:flex; gap:1rem; align-items:center}
+    .nav-links a{font-weight:600; font-size:0.9rem}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .container{max-width:var(--max-width); margin:2rem auto; padding:1rem}
 
-    body {
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #333;
+    /* Hero */
+    .hero{display:grid; grid-template-columns: 1fr 360px; gap:2rem; align-items:center;}
+    .hero-card{background:var(--card); padding:1.5rem; border-radius:14px; box-shadow:0 8px 30px rgba(2,6,23,0.08)}
+    .hero h2{margin:0 0 0.5rem 0; font-size:1.6rem}
+    .hero p.lead{color:var(--muted); margin-bottom:1rem}
+    .chips{display:flex; gap:0.5rem; flex-wrap:wrap}
+    .chip{background:var(--glass); padding:0.4rem 0.7rem; border-radius:999px; font-weight:600; color:#0b1220; font-size:0.8rem}
+
+    .profile{display:flex; flex-direction:column; gap:1rem; align-items:center}
+    .profile img{width:280px;height:280px; border-radius:16px; object-fit:cover; box-shadow:0 6px 20px rgba(2,6,23,0.08)}
+
+    /* Sections */
+    section{margin-top:1.5rem}
+    h3.section-title{display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem}
+    h3.section-title:before{content:''; width:6px; height:24px; background:var(--accent); border-radius:4px}
+
+    .grid{display:grid; gap:1rem}
+    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:var(--card); padding:1rem; border-radius:12px; box-shadow:0 6px 20px rgba(2,6,23,0.05)}
+    .card small{color:var(--muted)}
+
+    /* Projects */
+    .projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1rem}
+    .project{padding:1rem; border-radius:12px; background:linear-gradient(180deg,#ffffff,#fbfdff); border:1px solid rgba(15,23,36,0.03)}
+    .project h4{margin:0 0 0.25rem 0}
+    .meta{display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.6rem}
+    .badge{background:rgba(59,130,246,0.1); color:var(--accent); padding:0.25rem 0.5rem; border-radius:999px; font-weight:700; font-size:0.75rem}
+    .project p{color:var(--muted); margin:0 0 0.6rem 0}
+    .project .links{display:flex; gap:0.5rem}
+    .btn{display:inline-block; background:var(--accent); color:white; padding:0.45rem 0.75rem; border-radius:8px; font-weight:700; font-size:0.85rem}
+    .muted{color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .profile img{width:220px;height:220px}
     }
 
-    header {
-      background: #1f2937;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header {
-  background: #1f2937;
-  color: white;
-  padding: 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    footer{max-width:var(--max-width); margin:2rem auto 4rem auto; padding:1rem}
 
-header {
-  position: relative;
-  text-align: center;
-}
-
-header img.foto-perfil {
-  position: absolute;
-  right: 2rem; 
-  top: 50%; 
-  transform: translateY(-50%);
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #ffffff;
-}
-
-
-header img.foto-perfil {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #ffffff;
-}
-
-
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1rem;
-      color: #d1d5db;
-    }
-
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-
-    h2 {
-      margin-bottom: 1rem;
-      color: #1f2937;
-      border-left: 5px solid #3b82f6;
-      padding-left: 0.5rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    .projetos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .card {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      margin-bottom: 0.5rem;
-      color: #111827;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      color: #4b5563;
-    }
-
-    .card a {
-      text-decoration: none;
-      background: #3b82f6;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-size: 0.85rem;
-    }
-
-    footer {
-      background: #1f2937;
-      color: #d1d5db;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-
-    footer a {
-      color: #3b82f6;
-      text-decoration: none;
-      margin: 0 0.5rem;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
+    .smallprint{font-size:0.85rem;color:var(--muted)}
   </style>
 </head>
 <body>
-
   <header>
-  <div class="info">
-    <h1>Arthur — Ciências da Computação em formação</h1>
-    <p>Desenvolvedor Júnior | C/C++ • Python | Machine Learning • Visão Computacional • Engenharia de Software</p>
-  </div>
-  <img src="foto-perfil.jpg" alt="Foto de Arthur" class="foto-perfil">
-</header>
+    <nav>
+      <div class="brand">
+        <img src="foto-perfil.jpg" alt="Foto de Arthur">
+        <div>
+          <h1>Arthur — Machine Learning / AI Engineer (em formação)</h1>
+          <p>Python • PyTorch • Scikit-Learn • MLOps • Time Series</p>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#projects">Projetos</a>
+        <a href="#about">Sobre</a>
+        <a href="#contact">Contato</a>
+      </div>
+    </nav>
+  </header>
 
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h2>Engenharia de Machine Learning aplicada — Produtividade, Robustez e Deploy</h2>
+        <p class="lead">Sou Arthur, estudante de Ciência da Computação (UFCG). Construo pipelines de ML, modelos de visão computacional e sistemas com foco em produção — do experimento ao deploy e monitoramento. Procuro vagas em Engenharia de ML / AI e oportunidades para aplicar soluções com impacto.</p>
 
-  <section>
-  <h2>👨‍💻 Sobre Mim</h2>
-  <p>Sou estudante de Ciência da Computação na UFCG, apaixonado por resolver problemas complexos e explorar como a tecnologia funciona "por trás dos panos".</p>
-  <p>Tenho experiência prática em <strong>C/C++ e Python</strong>, aplicados em projetos de <strong>automação, algoritmos e engenharia de software</strong>.  
-  Sou entusiasta de <strong>Machine Learning</strong> e <strong>Visão Computacional</strong>, áreas nas quais busco me aprofundar cada vez mais, sempre com foco em aprendizado contínuo e criação de soluções inovadoras.</p>
-</section>
+        <div class="chips" aria-hidden>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Deep Learning</span>
+          <span class="chip">Time Series</span>
+          <span class="chip">Computer Vision</span>
+          <span class="chip">inference API</span>
+        </div>
 
+        <div style="margin-top:1rem; display:flex; gap:0.6rem; flex-wrap:wrap">
+          <a class="btn" href="#projects">Ver projetos</a>
+          <a class="btn" href="https://github.com/arthur-202" target="_blank" style="background:transparent;color:var(--accent);border:1px solid rgba(59,130,246,0.12)">GitHub</a>
+        </div>
+      </div>
 
+      <aside class="profile">
+        <img src="foto-perfil.jpg" alt="Foto de Arthur">
+        <div class="card" style="text-align:center">
+          <div style="font-weight:800">Arthur</div>
+          <small class="muted">Machine Learning / AI Engineer (em formação)</small>
+          <div style="margin-top:0.6rem;font-size:0.9rem">UFCG — Ciência da Computação</div>
+        </div>
+      </aside>
+    </section>
 
-  <section>
-  <h2>🚀 Projetos em Machine Learning e Visão Computacional</h2>
-  <div class="projetos">
-    <div class="card">
-      <h3>🎥 Detecção de foco</h3>
-      <p>Projeto em OpenCV + mediapipe para identificar quando uma pessoa perde o foco enquanto estuda.</p>
-      <a href="https://github.com/arthur-202/Portfolio/tree/main/detector_distracoes" target="_blank">Ver Projeto</a>
-    </div>
-    <div class="card">
-      <h3>🎥 McCulloch-Pitts</h3>
-      <p>Implementação do Neurônio de McCulloch-Pitts em C++.</p>
-      <a href="https://github.com/arthur-202/Portfolio/tree/main/mcculloch-pitts-neuron" target="_blank">Ver Projeto</a>
-    </div>
-  </div>
-</section>
+    <section id="about">
+      <h3 class="section-title">Sobre mim</h3>
+      <div class="grid cols-3">
+        <div class="card">
+          <strong>Resumo técnico</strong>
+          <p class="muted">Tenho experiência prática com pipelines de ML, visão computacional, processamento de imagens, e construção de APIs para inferência. Além disso, tenho conhecimentos de matemática aplicada e estatística para modelagem e análise de dados.</p>
+        </div>
+        <div class="card">
+          <strong>Stack</strong>
+          <p class="muted">Python, C/C++, scikit-learn, TensorFlow &amp; Keras, PyTorch (básico), OpenCV, Git, VS Code e Jupyter Notebook</p>
+        </div>
+        <div class="card">
+          <strong>O que procuro</strong>
+          <p class="muted">Posição júnior em Engenharia de ML / IA, projetos que envolvam deploy de modelos, sistemas em produção, previsão (time series) e visão computacional.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h3 class="section-title">Projetos — Machine Learning &amp; IA</h3>
+      <div class="projects-grid">
+
+        <article class="project">
+          <h4>Detecção de distração em tempo real</h4>
+          <div class="meta">
+            <span class="badge">Computer Vision</span>
+            <span class="badge">Machine Learning</span>
+            <span class="badge">Mediapipe • OpenCV</span>
+          </div>
+          <p>Sistema que utiliza landmarks faciais para analisar padrões de atenção durante o estudo. O projeto enfatiza entendimento do problema, extração de características e avaliação de abordagens heurísticas e supervisionadas.</p>
+          <p class="muted"><strong>Foco:</strong> análise de dados visuais, experimentação e melhoria progressiva do modelo.</p>
+          <div class="links">
+            <a class="btn" href="https://github.com/arthur-202/Portfolio/tree/main/detector_distracoes" target="_blank">Repositório</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h4>Sanskrit OCR Processor</h4>
+          <div class="meta">
+            <span class="badge">OCR</span>
+            <span class="badge">Machine Learning</span>
+            <span class="badge">Projeto orientado</span>
+          </div>
+          <p>Projeto acadêmico voltado ao processamento de imagens e extração de texto, com foco em automação do fluxo de dados e análise da qualidade dos resultados gerados.</p>
+          <p class="muted"><strong>Foco:</strong> entendimento do pipeline de OCR e avaliação dos resultados.</p>
+          <div class="links">
+            <a class="btn" href="https://github.com/arthur-202/Portfolio/tree/main/sanskrit" target="_blank">Repositório</a>
+          </div>
+        </article>
+
+      </div>
+
+      <h3 class="section-title" style="margin-top:1.2rem">Projetos — Automação &amp; Sistemas</h3>
+      <div class="projects-grid">
+
+        <article class="project">
+          <h4>Gerenciador de tarefas (C)</h4>
+          <div class="meta"><span class="badge">Sistemas</span><span class="badge">C</span></div>
+          <p>Implementação de um gerenciador de tarefas para Windows com foco em performance e estruturas de dados de baixo nível. Demonstra capacidade de engenharia de software e raciocínio de sistemas.</p>
+          <div class="links"><a class="btn" href="https://github.com/arthur-202/Portfolio/tree/main/Gerenciador_de_tarefas" target="_blank">Repositório</a></div>
+        </article>
+
+        <article class="project">
+          <h4>Tradutor de livros (Python)</h4>
+          <div class="meta"><span class="badge">Automação</span><span class="badge">NLP (baseline)</span></div>
+          <p>Script para tradução em lote com integração a APIs de tradução; demonstra automação e tratamento de arquivos grandes.</p>
+          <div class="links"><a class="btn" href="https://github.com/arthur-202/Portfolio/tree/main/Tradutor_de_livros" target="_blank">Repositório</a></div>
+        </article>
+
+      </div>
+
+      <h3 class="section-title" style="margin-top:1.2rem">Projetos — Estudos &amp; Implementações</h3>
+      <div class="projects-grid">
+
+        <article class="project">
+          <h4>McCulloch-Pitts (C++)</h4>
+          <div class="meta"><span class="badge">Teoria</span><span class="badge">C++</span></div>
+          <p>Implementação didática do neurônio de McCulloch-Pitts para entender os fundamentos históricos dos modelos neurais.</p>
+          <div class="links"><a class="btn" href="https://github.com/arthur-202/Portfolio/tree/main/mcculloch-pitts-neuron" target="_blank">Repositório</a></div>
+        </article>
+
+      </div>
+    </section>
 
 <section>
-  <h2>⚙️ Projetos de Automação e Software</h2>
-  <div class="projetos">
+  <h3 class="section-title">Desenvolvimento contínuo</h3>
+  <div class="grid cols-3">
+
     <div class="card">
-      <h3>🤖 Tradutor de livros</h3>
-      <p>Script em Python para tradução de livros.</p>
-      <a href="https://github.com/arthur-202/Portfolio/tree/main/Tradutor_de_livros" target="_blank">Ver Projeto</a>
-    </div>
-    <div class="card">
-      <h3>🤖 Sanskrit OCR Processor</h3>
-      <p>Desenvolvido sob a orientação do Dr Eanes T Pereira, professor da UFCG (Universidade Federal de Campina Grande),
-        esse script envia requisições a uma api de passagem de imagem para texto.
+      <strong>Formação e certificações</strong>
+      <p class="muted">
+        Especialização em Machine Learning em andamento.<br>
+        Deep Learning Specialization (Coursera).<br>
+        Cursos focados em fundamentos, modelagem e avaliação de modelos.
       </p>
-      <a href="https://github.com/arthur-202/Portfolio/tree/main/sanskrit" target="_blank">Ver Projeto</a>
     </div>
+
     <div class="card">
-      <h3>🤖 Gerenciador de tarefas</h3>
-      <p>Criado para Windows, mas com possibilidade de portabilidade para Linux, esse gerenciador de tarefas foi implementado em C.
+      <strong>Como estou estudando</strong>
+      <p class="muted">
+        Estudo ativo com implementação do zero, reprodução de resultados,
+        análise de erros e comparação entre abordagens.
+        Prioridade para entendimento matemático e prático.
       </p>
-      <a href="https://github.com/arthur-202/Portfolio/tree/main/Gerenciador_de_tarefas" target="_blank">Ver Projeto</a>
     </div>
+
+    <div class="card">
+      <strong>Próximos focos técnicos</strong>
+      <p class="muted">
+        Séries temporais, validação robusta,
+        métricas adequadas por problema
+        e organização de projetos em pipelines locais.
+      </p>
+    </div>
+
   </div>
 </section>
 
 
-  <section>
-    <h2>📬 Contato</h2>
-    <p>Email: <a href="">arthur.pt9875@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/arthur2005/" target="_blank">linkedin.com/in/arthur2005</a></p>
-    <p>GitHub: <a href="https://github.com/arthur-202" target="_blank">github.com/arthur-202</a></p>
-  </section>
+    <section id="contact">
+      <h3 class="section-title">Contato</h3>
+      <div class="card">
+        <p class="muted">Email: <a href="mailto:arthur.pt9875@gmail.com">arthur.pt9875@gmail.com</a></p>
+        <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/arthur2005/" target="_blank">linkedin.com/in/arthur2005</a></p>
+        <p class="muted">GitHub: <a href="https://github.com/arthur-202" target="_blank">github.com/arthur-202</a></p>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Arthur — Portfólio Profissional</p>
-  </footer>
+    <footer>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap">
+        <div class="smallprint">© 2025 Arthur — Portfólio Profissional • Construído para Vagas em Engenharia de ML/IA</div>
+      </div>
+    </footer>
 
+  </main>
 </body>
 </html>
